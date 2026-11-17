@@ -27,7 +27,7 @@ OUT_PDF = OUT_DIR / "CS5298_60392800_Verifiable_Indexer_Report.pdf"
 FIG_DIR = OUT_DIR / "figures"
 
 # Replace this with the public GitHub repository URL before submission.
-REPO_URL = "https://github.com/REPLACE_ME/verifiable-indexer"
+REPO_URL = "https://github.com/jack2004-1/final-project.git"
 
 styles = getSampleStyleSheet()
 

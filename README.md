@@ -11,6 +11,8 @@ trusting a single off-chain data provider.
 This project addresses **Direction 3: Verifiable Indexer** of the CS5298 final
 project.
 
+Repository: https://github.com/jack2004-1/final-project.git
+
 ## What it demonstrates
 
 - Each node computes a balance, event count and distinct-counterparty count by
