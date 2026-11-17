@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verifiable Indexer — CS5298</title>
+  <style>
+    :root {
+      --bg: #0f1320;
+      --panel: #1a2130;
+      --line: #2c3548;
+      --text: #e6ecf5;
+      --muted: #93a1b8;
+      --accent: #4f8cff;
+      --ok: #35b57f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+    }
+    h1 { font-size: 22px; margin: 0 0 6px; }
+    p.sub { color: var(--muted); margin: 0 0 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .card h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 12px; }
+    pre {
+      background: #0c1019;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 12.5px;
+      min-height: 120px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    button.secondary { background: #2a3448; }
+    .status { font-size: 12px; color: var(--ok); margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Committee-Verifiable Indexer</h1>
+  <p class="sub">CS5298 Final Project — Direction 3 · verified on-chain index records backed by a hosting-node committee.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Committee</h2>
+      <button onclick="load('/api/committee','committee')">Refresh</button>
+      <pre id="committee">—</pre>
+    </div>
+    <div class="card">
+      <h2>Verified Records</h2>
+      <button onclick="load('/api/records','records')">Refresh</button>
+      <pre id="records">—</pre>
+    </div>
+    <div class="card">
+      <h2>History Snapshots</h2>
+      <button onclick="load('/api/history','history')">Refresh</button>
+      <pre id="history">—</pre>
+    </div>
+  </div>
+
+  <script>
+    async function load(path, id) {
+      const el = document.getElementById(id);
+      try {
+        const res = await fetch(path);
+        const data = await res.json();
+        el.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        el.textContent = 'Request failed: ' + e;
+      }
+    }
+    load('/api/committee', 'committee');
+    load('/api/records', 'records');
+    load('/api/history', 'history');
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Rust / LDK build artifacts
+target/
+lyquid_tools_target/
+**/*.rs.bk
+
+# Report preview cache (regenerated from build_report.py)
+report/preview/
+
+# Demo recording (kept out of source; packaged separately for submission)
+demo/*.mp4
+demo/*.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp

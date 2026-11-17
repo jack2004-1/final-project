@@ -1,0 +1,82 @@
+{
+  "session": "simulated-user read-only session against the hosted SPA/HTTP API",
+  "api_base": "http://127.0.0.1:8080",
+  "total_checks": 10,
+  "passed": 10,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "committee lists the four hosting nodes",
+      "passed": true,
+      "observed": [
+        "Node-2folhfgf4kuyfdenaq3l4dnamv7yxrnqq3zbp64thfa5esqgxhv6wzqa",
+        "Node-oq2lcra5u4ksufzsv2ciqbl56dkp5c653ikzkx3lh62tai566d7dseia",
+        "Node-j3fcdy5twah7csa6pr4jhgxcvszycxdms2hsen5m7lrvtezqlv52cqaa",
+        "Node-ve3tav5jw5ico7or34gcb6ni7rtmd35uokriuijygabd3tsltd7fj6ia"
+      ],
+      "detail": "expected 4 nodes, observed 4"
+    },
+    {
+      "name": "committee threshold is configured",
+      "passed": true,
+      "observed": 3,
+      "detail": "threshold must be a positive integer"
+    },
+    {
+      "name": "target address has a certified record",
+      "passed": true,
+      "observed": [
+        "0x1111111111111111111111111111111111111111"
+      ],
+      "detail": "the demo address should appear in the certified records"
+    },
+    {
+      "name": "replayed balance matches the expected batch",
+      "passed": true,
+      "observed": 630,
+      "detail": "expected 630"
+    },
+    {
+      "name": "event count matches the expected batch",
+      "passed": true,
+      "observed": 4,
+      "detail": "expected 4"
+    },
+    {
+      "name": "counterparty count matches the expected batch",
+      "passed": true,
+      "observed": 3,
+      "detail": "expected 3"
+    },
+    {
+      "name": "head block matches the expected batch",
+      "passed": true,
+      "observed": 42000,
+      "detail": "expected 42000"
+    },
+    {
+      "name": "at least threshold nodes signed the record",
+      "passed": true,
+      "observed": [
+        "Node-ve3tav5jw5ico7or34gcb6ni7rtmd35uokriuijygabd3tsltd7fj6ia",
+        "Node-2folhfgf4kuyfdenaq3l4dnamv7yxrnqq3zbp64thfa5esqgxhv6wzqa",
+        "Node-oq2lcra5u4ksufzsv2ciqbl56dkp5c653ikzkx3lh62tai566d7dseia"
+      ],
+      "detail": "expected at least 3 signers"
+    },
+    {
+      "name": "candidate observations were recorded",
+      "passed": true,
+      "observed": 2,
+      "detail": "candidates should reflect observations used in aggregation"
+    },
+    {
+      "name": "at least one finalized history snapshot exists",
+      "passed": true,
+      "observed": [
+        1
+      ],
+      "detail": "the certified update should append a history entry"
+    }
+  ]
+}

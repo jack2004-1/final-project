@@ -1,0 +1,25 @@
+[package]
+name = "verifiable-indexer"
+publish = false
+version = "0.1.0"
+edition = "2024"
+authors = ["Buyiyang (60392800)"]
+description = "Committee-verifiable on-chain indexer Lyquid for CS5298 Final Project"
+
+[dependencies]
+lyquid = { version = "0.8.4", features = ["ldk"] }
+lyquor-primitives = { version = "0.8.4" }
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+serde_json = "=1.0.151"
+
+[dev-dependencies]
+lyquid-test = "0.8.4"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+strip = "debuginfo"
+debug = false
+
+[workspace]
