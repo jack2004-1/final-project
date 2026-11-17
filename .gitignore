@@ -7,8 +7,8 @@ lyquid_tools_target/
 report/preview/
 
 # Demo recording (kept out of source; packaged separately for submission)
-demo/*.mp4
-demo/*.zip
+*.mp4
+*.zip
 
 # OS / editor noise
 .DS_Store
